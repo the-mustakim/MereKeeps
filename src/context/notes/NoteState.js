@@ -42,6 +42,33 @@ const NoteState=(props)=>{
             "tag": "personal",
             "date": "2023-01-31T08:08:07.390Z",
             "__v": 0
+          },
+          {
+            "_id": "63d8cc675b974e4877d242c8",
+            "user": "63d5c30c31cf74af8bcacd74",
+            "title": "My title",
+            "description": "Pleses wake up early",
+            "tag": "personal",
+            "date": "2023-01-31T08:08:07.390Z",
+            "__v": 0
+          },
+          {
+            "_id": "63d8cc675b974e4877d242c8",
+            "user": "63d5c30c31cf74af8bcacd74",
+            "title": "My title",
+            "description": "Pleses wake up early",
+            "tag": "personal",
+            "date": "2023-01-31T08:08:07.390Z",
+            "__v": 0
+          },
+          {
+            "_id": "63d8cc675b974e4877d242c8",
+            "user": "63d5c30c31cf74af8bcacd74",
+            "title": "My title",
+            "description": "Pleses wake up early",
+            "tag": "personal",
+            "date": "2023-01-31T08:08:07.390Z",
+            "__v": 0
           }
     ]
 
