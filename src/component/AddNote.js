@@ -47,8 +47,19 @@ export default function AddNote() {
               onChange={onChange}
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Tag</label>
+            <input
+              type="text"
+              className="form-control"
+              id="tag"
+              name="tag"
+              placeholder="Add tag"
+              onChange={onChange}
+            />
+          </div>
           <button type="submit" className="btn btn-primary my-3" onClick={handleClick}>
-            Submit
+            Add Note
           </button>
         </form>
         </div>
