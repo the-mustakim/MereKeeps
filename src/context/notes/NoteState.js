@@ -58,9 +58,8 @@ const NoteState = (props) => {
 
   //Delete a Note
   const deleteNote = async (id) => {
-    //TODO : API Call
+    
     //API Call
-
     const newNotes = notes.filter((note) => {
       return note._id !== id;
     });

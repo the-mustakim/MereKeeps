@@ -11,6 +11,7 @@ export default function AddNote() {
   const handleClick=(e)=>{
     e.preventDefault()
     addNote(note.title,note.desc,note.tag);
+    setNote({title:"",desc:"",tag:""})
   }
 
   const onChange=(e)=>{
@@ -34,6 +35,9 @@ export default function AddNote() {
               aria-describedby="emailHelp"
               placeholder="Enter Note Title"
               onChange={onChange}
+              value={note.title}
+              minLength={5}
+              required
             />
           </div>
           <div className="form-group">
@@ -45,6 +49,9 @@ export default function AddNote() {
               name="desc"
               placeholder="Write note...."
               onChange={onChange}
+              value={note.desc}
+              minLength={5}
+              required
             />
           </div>
           <div className="form-group">
@@ -55,10 +62,11 @@ export default function AddNote() {
               id="tag"
               name="tag"
               placeholder="Add tag"
+              value={note.tag}
               onChange={onChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary my-3" onClick={handleClick}>
+          <button disabled={note.title.length<5 || note.desc.length<5} type="submit" className="btn btn-primary my-3" onClick={handleClick}>
             Add Note
           </button>
         </form>

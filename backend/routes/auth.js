@@ -19,8 +19,9 @@ router.post(
     }),
   ],
   async (req, res) => {
-    console.log("Hi");
-
+    
+    //console.log("Hi");
+    let success=false;
     try {
       // If there are errors, return Bad request and the errors
       const errors = validationResult(req);
@@ -37,7 +38,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ error: "Sorry a user with this email already exists" });
+          .json({ success,error: "Sorry a user with this email already exists" });
       }
 
       //Crate a new User
@@ -63,8 +64,8 @@ router.post(
 
       const authToken = jwt.sign(data, JWT_SECRET);
       console.log(authToken);
-
-      res.json({ authToken });
+      success=true
+      res.json({success, authToken });
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Internal Server Error");
@@ -80,6 +81,7 @@ router.post(
     body("password", "Password can not be blank").exists(),
   ],
   async (req, res) => {
+    let success = false
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -98,7 +100,7 @@ router.post(
 
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
-        return res.status(400).json({
+        return res.status(400).json({success,
           error: "Please try to login with correct credentials",
         });
       }
@@ -111,9 +113,9 @@ router.post(
 
       const authToken = jwt.sign(data, JWT_SECRET);
       console.log(authToken);
-
-      res.json({ authToken });
-    } catch (error) {
+      success=true
+      res.json({ success,authToken });
+    } catch (error) { 
       console.log(error.message);
       res.status(500).send("Internal Server Error");
     }

@@ -76,6 +76,8 @@ export default function Notes() {
                     placeholder="Enter Note Title"
                     onChange={onChange}
                     value={note.etitle}
+                    minLength={5}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -88,6 +90,8 @@ export default function Notes() {
                     placeholder="Write note...."
                     onChange={onChange}
                     value={note.edescription}
+                    minLength={5}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -113,8 +117,8 @@ export default function Notes() {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary" onClick={handleClick}>
-                Save changes
+              <button disabled={note.etitle.length<5 || note.edescription.length<5} type="button" className="btn btn-primary" onClick={handleClick}>
+                Update Note
               </button>
             </div>
           </div>
@@ -122,6 +126,9 @@ export default function Notes() {
       </div>
       <div className="row my-3">
         <h1>Your Notes</h1>
+        <div className="container mx-2">
+          {notes.length===0 && "No Notes Available"}
+        </div>
         {notes.map((note) => {
           return (
             <Noteitem key={note._id} note={note} updateNote={updateNote} />

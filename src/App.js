@@ -5,6 +5,8 @@ import Navbar from "./component/Navbar";
 import About from "./component/About";
 import NoteState from "./context/notes/NoteState";
 import Alert from "./component/Alert";
+import Signup from "./component/Signup";
+import Login from "./component/Login";
 
 function App() {
   return (
@@ -20,6 +22,12 @@ function App() {
               </Route>
               <Route exac path="/about">
                 <About />
+              </Route>
+              <Route exac path="/login">
+                <Login />
+              </Route>
+              <Route exac path="/signup">
+                <Signup />
               </Route>
             </Switch>
           </div>
