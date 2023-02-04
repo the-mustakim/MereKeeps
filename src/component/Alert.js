@@ -1,11 +1,21 @@
-import React from "react";
+import React from 'react'
 
-export default function Alert(props) {
+function Alert(props) {
+  const danger=(word)=>{
+    if(word=="danger")
+    {
+      word='error'
+    }
+    return word.toUpperCase()
+  }
   return (
-    <div>
-      <div className="alert alert-warning" role="alert">
-        {props.message}
-      </div>
+    <div style={{height:"50px"}}>
+            {props.alert &&  <div className={`alert alert-${props.alert.type}`} role="alert">
+                    <strong>{danger(props.alert.type)} </strong>: {props.alert.msg}
+                    </div>}
     </div>
-  );
+     
+  )
 }
+
+export default Alert

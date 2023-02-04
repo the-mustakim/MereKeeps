@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-export default function Login() {
+export default function Login(props) {
   const [credentails, setCredentails] = useState({email:"",password:""});
   const history = useHistory();
   
@@ -26,6 +26,7 @@ export default function Login() {
         {
             //save auth token and redirect to home page
             localStorage.setItem("token",response.data.authToken)
+            props.showAlert("Logged in Successfully","success")
             history.push("/")
         }
         else
@@ -36,7 +37,7 @@ export default function Login() {
       (error) => {
         
         //InValid Credentials
-         alert("Invalid Credentials")
+        props.showAlert("Invalid Credentials","danger")
       }
     );
   };
@@ -44,6 +45,7 @@ export default function Login() {
   return (
     <>
       <div className="container" onSubmit={handleSubmit}>
+      <h2>Login to continue to MereKeeps</h2>
         <form>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">

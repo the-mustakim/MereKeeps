@@ -1,13 +1,21 @@
-import React, { useEffect } from "react";
-import {Link, useLocation} from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import {Link, useHistory, useLocation} from 'react-router-dom'
 
 
-export default function Navbar() {
-
+export default function Navbar(props) {
+  
   let location=useLocation()
+  const history = useHistory();
   useEffect(()=>{
     //console.log(location.pathname)
   },[location])
+
+  const handleSignout=()=>{
+    localStorage.removeItem("token")
+    history.push("/login")
+    props.showAlert("Signed Out Successfully", "success") 
+  }
+
 
   return (
     <>
@@ -15,7 +23,7 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
             <Link className="navbar-brand" to="#">
-              iNoteBook
+              MereKeeps
             </Link>
             <button
               className="navbar-toggler"
@@ -44,10 +52,10 @@ export default function Navbar() {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex">
+              {!localStorage.getItem("token")?<form className="d-flex">
                 <Link className="btn btn-primary mx-1" role="button" to="/login">Login</Link>
                 <Link className="btn btn-primary mx-1" role="button" to="/signup">Signup</Link>
-              </form>
+              </form>: <button className="btn btn-primary" onClick={handleSignout}>Sign out</button>}
             </div>
           </div>
         </nav>

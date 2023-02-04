@@ -2,20 +2,23 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-export default function Signup() {
+export default function Signup(props) {
+
   const [credentails, setCredentails] = useState({
     name: "",
     email: "",
     password: "",
     ConfirmPassword: "",
   });
+
   const history = useHistory();
   const onChange = (event) => {
     setCredentails({ ...credentails, [event.target.name]: event.target.value });
   };
-  const handleSubmit = async (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    debugger;
+    //debugger;
     const data = JSON.stringify({
       name: credentails.name,
       email: credentails.email,
@@ -30,10 +33,11 @@ export default function Signup() {
       (response) => {
         //console.log(response.data);
         history.push("/login")
+        props.showAlert("Account Created Successfully","success")
       },
       (error) => {
         //InValid Credentials
-        alert(error);
+        props.showAlert("Invalid Details","danger")
       }
     );
   };
@@ -41,6 +45,7 @@ export default function Signup() {
   return (
     <>
       <div className="container">
+      <h2>Create account</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">

@@ -15,8 +15,7 @@ const NoteState = (props) => {
       .get("http://localhost:5000/api/notes/fetchallnotes", {
         headers: {
           "Content-Type": "application/json",
-          "auth-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNWMzMGMzMWNmNzRhZjhiY2FjZDc0In0sImlhdCI6MTY3NTE0MDIzM30.smH-WIHtOdeuwbJpotK5TshhcIM5Nn1IE1rI7cJ1gus",
+          "auth-token": localStorage.getItem("token"),
         },
       })
       .then(
@@ -39,8 +38,7 @@ const NoteState = (props) => {
     const options = {
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNWMzMGMzMWNmNzRhZjhiY2FjZDc0In0sImlhdCI6MTY3NTE0MDIzM30.smH-WIHtOdeuwbJpotK5TshhcIM5Nn1IE1rI7cJ1gus",
+        "auth-token": localStorage.getItem("token"),
       },
     };
 
@@ -58,7 +56,6 @@ const NoteState = (props) => {
 
   //Delete a Note
   const deleteNote = async (id) => {
-    
     //API Call
     const newNotes = notes.filter((note) => {
       return note._id !== id;
@@ -68,8 +65,7 @@ const NoteState = (props) => {
       .delete(`${host}/api/notes/deletenote/${id}`, {
         headers: {
           "Content-Type": "application/json",
-          "auth-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNWMzMGMzMWNmNzRhZjhiY2FjZDc0In0sImlhdCI6MTY3NTE0MDIzM30.smH-WIHtOdeuwbJpotK5TshhcIM5Nn1IE1rI7cJ1gus",
+          "auth-token": localStorage.getItem("token"),
         },
       })
       .then(
@@ -93,8 +89,7 @@ const NoteState = (props) => {
     const options = {
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNWMzMGMzMWNmNzRhZjhiY2FjZDc0In0sImlhdCI6MTY3NTE0MDIzM30.smH-WIHtOdeuwbJpotK5TshhcIM5Nn1IE1rI7cJ1gus",
+        "auth-token": localStorage.getItem("token"),
       },
     };
 
@@ -103,7 +98,7 @@ const NoteState = (props) => {
         //console.log(response);
         // Logic to edit in client
         //we can can change the state directly so we have to create another note
-        let newNotes = JSON.parse(JSON.stringify(notes))
+        let newNotes = JSON.parse(JSON.stringify(notes));
         for (let index = 0; index < newNotes.length; index++) {
           const element = newNotes[index];
           if (element._id === id) {
