@@ -44,7 +44,7 @@ export default function Signup(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container my-4">
       <h2>Create account</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">

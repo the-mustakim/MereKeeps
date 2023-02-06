@@ -29,8 +29,10 @@ function App() {
       <NoteState>
         <Router>
           <Navbar showAlert={showAlert}/>
-          <Alert alert={alert}/>
-          <div className="container">
+          <div className="container" style={{marginTop:70}}>
+            <Alert alert={alert}/>
+          </div>
+          <div className="container my-4">
             <Switch>
               <Route exact path="/">
                 <Home showAlert={showAlert}/>

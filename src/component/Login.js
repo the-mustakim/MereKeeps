@@ -45,7 +45,7 @@ export default function Login(props) {
   return (
     <>
       <div className="container" onSubmit={handleSubmit}>
-      <h2>Login to continue to MereKeeps</h2>
+      <h2>Login to MereKeeps</h2>
         <form>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
