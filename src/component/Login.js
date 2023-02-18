@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Login1 from '../images/Login1.jpg'
 
 export default function Login(props) {
   const [credentails, setCredentails] = useState({email:"",password:""});
@@ -27,7 +28,7 @@ export default function Login(props) {
             //save auth token and redirect to home page
             localStorage.setItem("token",response.data.authToken)
             props.showAlert("Logged in Successfully","success")
-            history.push("/")
+            history.push("/dashboard")
         }
         else
         {
@@ -44,10 +45,16 @@ export default function Login(props) {
 
   return (
     <>
-      <div className="container" onSubmit={handleSubmit}>
+      <div className="row mx-auto" style={{
+          backgroundColor: "#3BB9FF",
+          borderRadius:20,
+          width:900,
+          padding:50
+        }}>
+      <div className="col" onSubmit={handleSubmit} style={{marginTop:100}}>
       <h2>Login to MereKeeps</h2>
         <form>
-          <div className="mb-3">
+          <div className="mb-3 img">
             <label htmlFor="email" className="form-label">
               Email
             </label>
@@ -84,6 +91,10 @@ export default function Login(props) {
             Submit
           </button>
         </form>
+      </div>
+      <div className="col" style={{marginTop:50}}>
+          <img className="img-fluid" src={Login1} alt="Login1"style={{width:400, height:400,borderRadius:20}}/>
+      </div>
       </div>
     </>
   );

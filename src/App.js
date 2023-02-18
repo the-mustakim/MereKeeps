@@ -1,12 +1,15 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./component/Home";
+import Dashboard from "./component/Dashboard";
 import Navbar from "./component/Navbar";
 import About from "./component/About";
 import NoteState from "./context/notes/NoteState";
 import Alert from "./component/Alert";
 import Signup from "./component/Signup";
 import Login from "./component/Login";
+import Contact from "./component/Contact";
+import Home from "./component/Home";
+import Footer from "./component/Footer";
 import { useState } from "react";
 
 function App() {
@@ -37,8 +40,14 @@ function App() {
               <Route exact path="/">
                 <Home showAlert={showAlert}/>
               </Route>
+              <Route exact path="/dashboard">
+                <Dashboard showAlert={showAlert}/>
+              </Route>
               <Route exac path="/about">
                 <About />
+              </Route>
+              <Route exac path="/contact">
+                <Contact/>
               </Route>
               <Route exac path="/login">
                 <Login showAlert={showAlert}/>
@@ -48,6 +57,9 @@ function App() {
               </Route>
             </Switch>
           </div>
+          <footer>
+            <Footer/>
+          </footer>
         </Router>
       </NoteState>
     </>

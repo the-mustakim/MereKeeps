@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {Link, useHistory, useLocation} from 'react-router-dom'
-
+import MereKeepsLogo from '../images/MereKeepsLogo.png'
 
 export default function Navbar(props) {
   
@@ -22,6 +22,7 @@ export default function Navbar(props) {
       <div>
         <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
+            <img src={MereKeepsLogo} alt="MereKeepsLogo" style={{height:50,width:50}}/>
             <Link className="navbar-brand" to="#">
               MereKeeps
             </Link>
@@ -41,14 +42,24 @@ export default function Navbar(props) {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
+              <li className="nav-item">
                   <Link className={`nav-link ${location.pathname==="/" ? "active":"" }`} aria-current="page" to="/">
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className={`nav-link ${location.pathname==="/dashboard" ? "active":"" }`} aria-current="page" to="/dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className={`nav-link ${location.pathname==="/about" ? "active":""} `} to="/about">
                     About
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className={`nav-link ${location.pathname==="/contact" ? "active":""} `} to="/contact">
+                    Contact Us
                   </Link>
                 </li>
               </ul>

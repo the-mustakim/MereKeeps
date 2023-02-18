@@ -12,7 +12,7 @@ const NoteState = (props) => {
   const getNotes = async () => {
     //API Call
     axios
-      .get("http://localhost:5000/api/notes/fetchallnotes", {
+      .get(`${host}/api/notes/fetchallnotes`, {
         headers: {
           "Content-Type": "application/json",
           "auth-token": localStorage.getItem("token"),
@@ -42,7 +42,7 @@ const NoteState = (props) => {
       },
     };
 
-    axios.post("http://localhost:5000/api/notes/addnote", data, options).then(
+    axios.post(`${host}/api/notes/addnote`, data, options).then(
       (response) => {
         //console.log(response);
         setNotes(notes.concat(response.data));
