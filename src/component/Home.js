@@ -10,25 +10,33 @@ export default function Home() {
 
   const [NoteOranizedText, setNoteOranizedText] = useState("With MereKeeps, you can easily organize your notes in a way that makes sense to you.")
   const [FastAccessText, setFastAccessText] = useState("MereKeeps provides a variety of tools and features that allow you to quickly and easily access your notes.")
-  const [CloudStorageText, setCloudStorageText] = useState("MereKeeps offers secure cloud storage for all your notes, so you can access them from anywhere and on any device.")  
+  const [CloudStorageText, setCloudStorageText] = useState("MereKeeps offers secure cloud storage for all your notes, so you can access them from anywhere and on any device.")
+
+  const [viewlessNoteOranized, setviewLessNoteOranized] = useState(false)
+  const [viewlessFastAccess, setviewLessFastAccess] = useState(false)
+  const [viewlessCloudStorage, setviewLessCloudStorage] = useState(false)
   
   // const DataArr=["With MereKeeps, you can easily organize your notes in a way that makes sense to you. Whether you prefer to categorize them by topic, tag them with keywords, or store them in specific folders, MereKeeps makes it easy to find what you're looking for. This feature is particularly useful for users who have a lot of notes and want to keep them organized for easy reference.",
   // "MereKeeps provides a variety of tools and features that allow you to quickly and easily access your notes. The search function allows you to find specific notes by keyword or tag, making it easy to locate the information you need. Additionally, the 'Recently Viewed' feature allows you to quickly access notes that you've recently worked on, so you can pick up where you left off. This feature is particularly useful for users who want to save time and stay organized, as it allows you to find and access the notes you need quickly and easily. With MereKeeps, you can spend less time searching for information and more time focusing on what's important.",
   // "MereKeeps offers secure cloud storage for all your notes, so you can access them from anywhere and on any device. This means that you can work on your notes at home, at the office, or on-the-go, and still have access to all your important information. MereKeeps takes security seriously and ensures that all your notes are stored securely and protected from unauthorized access."]
 
   const toggle=(e)=>{
-    console.log(e.target.id)
+    //console.log(e.target.id)
     if(e.target.id==="NoteorganizationBtn")
     {
       setNoteOranizedText("With MereKeeps, you can easily organize your notes in a way that makes sense to you. Whether you prefer to categorize them by topic, tag them with keywords, or store them in specific folders, MereKeeps makes it easy to find what you're looking for. This feature is particularly useful for users who have a lot of notes and want to keep them organized for easy reference.")
+      setviewLessNoteOranized(true)
     }
     else if(e.target.id==="FastAccessTextBtn")
     {
       setFastAccessText("MereKeeps provides a variety of tools and features that allow you to quickly and easily access your notes. The search function allows you to find specific notes by keyword or tag, making it easy to locate the information you need. Additionally, the 'Recently Viewed' feature allows you to quickly access notes that you've recently worked on, so you can pick up where you left off. This feature is particularly useful for users who want to save time and stay organized, as it allows you to find and access the notes you need quickly and easily. With MereKeeps, you can spend less time searching for information and more time focusing on what's important.")
+      setviewLessFastAccess(true)
+      
     }
     else if(e.target.id==="CloudStorageTextBtn")
     {
       setCloudStorageText("MereKeeps offers secure cloud storage for all your notes, so you can access them from anywhere and on any device. This means that you can work on your notes at home, at the office, or on-the-go, and still have access to all your important information. MereKeeps takes security seriously and ensures that all your notes are stored securely and protected from unauthorized access.")
+      setviewLessCloudStorage(true)
     }
   }
 
@@ -55,19 +63,19 @@ export default function Home() {
             <img src={NoteOranized} className="img-fluid" alt="HomeBack1"/>
             <h2 className="fw-bold mt-4">Note organization</h2>
             <p className="px-4">{NoteOranizedText}</p>
-            <button id="NoteorganizationBtn" type="button" onClick={toggle} className="btn border btn-success">View More</button>
+            <button hidden={viewlessNoteOranized} id="NoteorganizationBtn" type="button" onClick={toggle} className="btn border btn-success">View More</button>
           </div>
           <div className="col-md-4 text-center mb-5">
             <img src={FastAccess} className="img-fluid" alt="HomeBack1"/>
             <h2 className="fw-bold mt-4">Fast Access</h2>
             <p className="px-4">{FastAccessText}</p>
-            <button id="FastAccessTextBtn" type="button" onClick={toggle} className="btn border btn-success">View More</button>
+            <button hidden={viewlessFastAccess} id="FastAccessTextBtn" type="button" onClick={toggle} className="btn border btn-success">View More</button>
           </div>
           <div className="col-md-4 text-center mb-5">
             <img src={CloudStorage} className="img-fluid" alt="HomeBack1"/>
             <h2 className="fw-bold mt-4">Cloud storage</h2>
             <p className="px-4">{CloudStorageText}</p>
-            <button id="CloudStorageTextBtn" type="button" onClick={toggle} className="btn border btn-success">View More</button>
+            <button hidden={viewlessCloudStorage} id="CloudStorageTextBtn" type="button" onClick={toggle} className="btn border btn-success">View More</button>
           </div>
         </div>
       </div>
