@@ -50,7 +50,7 @@ export default function Home() {
             <h1 className="Heading">Mere Keeps</h1>
             <hr/>
             <h5 className="Phrase"><i>Organize Your Notes, Ideas & Memories</i></h5>
-            <Link role="button" to="/login"><button type="button" className="btn btn-primary mt-5 BtnSize">Try MereKeeps</button></Link>
+            <Link role="button" to="/login"><button type="button" className="mt-5 BtnSize">Try MereKeeps</button></Link>
           </div>
           <div className="col-md-6 mb-5 text-center">
           <img src={HomeBack4} className="img-fluid" alt="HomeBack3"/>

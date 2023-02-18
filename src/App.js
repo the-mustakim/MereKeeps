@@ -12,6 +12,7 @@ import Home from "./component/Home";
 import Footer from "./component/Footer";
 import { useState } from "react";
 
+
 function App() {
   const [alert,setAlert] = useState(null);
   
