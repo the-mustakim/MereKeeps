@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import style1 from './style1.css'
 
 
-export default function Contact() {
+export default function Contact(props) {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_9krfglz', 'template_0zk861j', form.current, '_3r8JuAfP5gl2lemd')
+      .then((result) => {
+          console.log(result.text);
+          props.showAlert("Note Updated","success")
+      }, (error) => {
+          console.log(error.text);  
+      });
+  };
   return (
     <>
        <div className="container text-center">
@@ -16,18 +30,18 @@ export default function Contact() {
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.8234384008633!2d75.32789221530234!3d19.88967603105873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb980e1908b535%3A0x6d4cb481438fbf5f!2sAY%20INFOTECH!5e0!3m2!1sen!2sin!4v1676731517613!5m2!1sen!2sin" style={{border:0, width:300, height:400}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div className='col-md-6 mb-5'>
-           <form>
+           <form ref={form} onSubmit={sendEmail}>
             <div className="form-group">
             <div className="form-group">
               <label htmlFor="name1">Name</label>
-              <input type="text" className="form-control" id="name1" placeholder="Name"/>
+              <input name="user_name" type="text" className="form-control" id="name1" placeholder="Name"/>
             </div>
               <label htmlFor="exampleInputEmail1">Email</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+              <input name="user_email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
             </div>
             <div className="form-group">
               <label htmlFor="message1">Message</label>
-              <textarea className="form-control" name="Message" id="message1" cols="30" rows="4"></textarea>
+              <textarea name="message" className="form-control" id="message1" cols="30" rows="4"></textarea>
             </div>
             <button type="submit" className="btn btn-success my-2">Send Message</button>
           </form>

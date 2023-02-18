@@ -47,7 +47,7 @@ function App() {
                 <About />
               </Route>
               <Route exac path="/contact">
-                <Contact/>
+                <Contact showAlert={showAlert}/>
               </Route>
               <Route exac path="/login">
                 <Login showAlert={showAlert}/>
