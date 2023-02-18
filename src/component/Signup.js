@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import SignUp1 from '../images/SignUp1.jpg'
+import SignUp1 from '../images/SignUp1.jpg';
+import './style1.css'
 
 export default function Signup(props) {
   const [credentails, setCredentails] = useState({
@@ -57,7 +58,8 @@ export default function Signup(props) {
     <>
       {/* margin:auto, margin-top:10%; background-color:lightcyan; width:400px; border-radius:20px; padding:50px */}
       <div className="row mx-auto"  style={{
-          backgroundColor: "#3BB9FF",
+          color:"white",
+          backgroundColor: "#00579c",
           borderRadius:20,
           width:1000,
           padding:50
@@ -98,9 +100,9 @@ export default function Signup(props) {
               value={credentails.email}
               required
             />
-            <div id="emailHelp" className="form-text">
+            <small style={{color:"white"}}>
               We'll never share your email with anyone else.
-            </div>
+            </small>
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
@@ -133,7 +135,7 @@ export default function Signup(props) {
             />
           </div>
           <div className="text-center">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary BtnLogin">
               Submit
             </button>
           </div>

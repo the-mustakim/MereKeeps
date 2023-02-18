@@ -7,7 +7,7 @@ const { body, validationResult } = require("express-validator");
 // ROUTE 1: Get All the Notes using : GET "/api/auth/createuser". Login Require
 router.get("/fetchallnotes", fetchuser, async (req, res) => {
   const notes = await Notes.find({ user: req.user.id });
-  console.log("Hello");
+  //console.log("Hello");
   res.json(notes);
 });
 
@@ -39,7 +39,7 @@ router.post(
 
       res.json(savedNote);
     } catch (error) {
-      console.error(error.message);
+      //console.error(error.message);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -77,7 +77,7 @@ router.put("/updatenote/:id", fetchuser, async (req, res) => {
     );
     res.json({ note });
   } catch (error) {
-    console.error(error.message);
+    //console.error(error.message);
     res.status(500).send("Internal Server Error");
   }
 });
@@ -99,7 +99,7 @@ router.delete("/deletenote/:id", fetchuser, async (req, res) => {
     note = await Notes.findByIdAndDelete(req.params.id);
     res.json({ Success: "Note has been deleted", note: note });
   } catch (error) {
-    console.error(error.message);
+    //console.error(error.message);
     res.status(500).send("Internal Server Error");
   }
 });

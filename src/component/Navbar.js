@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {Link, useHistory, useLocation} from 'react-router-dom'
 import MereKeepsLogo from '../images/MereKeepsLogo.png'
+import './style1.css'
 
 export default function Navbar(props) {
   
@@ -64,8 +65,8 @@ export default function Navbar(props) {
                 </li>
               </ul>
               {!localStorage.getItem("token")?<form className="d-flex">
-                <Link className="btn btn-primary mx-1" role="button" to="/login">Login</Link>
-                <Link className="btn btn-primary mx-1" role="button" to="/signup">Signup</Link>
+                <Link className="btn btn-primary mx-1 BtnLogin" role="button" to="/login">Login</Link>
+                <Link className="btn btn-primary mx-1 BtnLogin" role="button" to="/signup">Signup</Link>
               </form>: <button className="btn btn-primary" onClick={handleSignout}>Sign out</button>}
             </div>
           </div>

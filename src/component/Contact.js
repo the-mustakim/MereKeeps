@@ -5,6 +5,8 @@ import style1 from './style1.css'
 
 export default function Contact(props) {
   const form = useRef();
+  const {showAlert} = props;
+  const [contactData, setcontactData] = useState({user_name:"",user_email:"",message:""})
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -12,11 +14,18 @@ export default function Contact(props) {
     emailjs.sendForm('service_9krfglz', 'template_0zk861j', form.current, '_3r8JuAfP5gl2lemd')
       .then((result) => {
           console.log(result.text);
-          props.showAlert("Note Updated","success")
+          setcontactData({user_name:"",user_email:"",message:""})
+          showAlert("Message Sent","success")
       }, (error) => {
-          console.log(error.text);  
+          console.log(error.text);
+          showAlert("We are Sorry Currently We Are Exprencing Very High Demand","danger")
       });
   };
+
+  const handleChange=(e)=>{
+    setcontactData({...contactData,[e.target.name]:e.target.value})
+  }
+
   return (
     <>
        <div className="container text-center">
@@ -33,15 +42,15 @@ export default function Contact(props) {
            <form ref={form} onSubmit={sendEmail}>
             <div className="form-group">
             <div className="form-group">
-              <label htmlFor="name1">Name</label>
-              <input name="user_name" type="text" className="form-control" id="name1" placeholder="Name"/>
+              <label htmlFor="name1"></label>
+              <input name="user_name" type="text" className="form-control" id="name1" placeholder="Name" value={contactData.user_name} onChange={handleChange}/>
             </div>
-              <label htmlFor="exampleInputEmail1">Email</label>
-              <input name="user_email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+              <label htmlFor="exampleInputEmail1"></label>
+              <input name="user_email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value={contactData.user_email} onChange={handleChange}/>
             </div>
             <div className="form-group">
-              <label htmlFor="message1">Message</label>
-              <textarea name="message" className="form-control" id="message1" cols="30" rows="4"></textarea>
+              <label htmlFor="message1"></label>
+              <textarea name="message" className="form-control" id="message1" cols="30" rows="4" value={contactData.message} onChange={handleChange}></textarea>
             </div>
             <button type="submit" className="btn btn-success my-2">Send Message</button>
           </form>

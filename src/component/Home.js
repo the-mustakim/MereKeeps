@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from 'react-router-dom'
 import HomeBack4 from "../images/HomeBack4.jpeg";
 import CloudStorage from '../images/CloudStorage.png'
 import FastAccess from '../images/FastAccess.png'
@@ -43,10 +44,16 @@ export default function Home() {
   return (
     <>
       {/* header */}
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col p-0">
-            <img src={HomeBack4} className="img-fluid" alt="HomeBack3"/>
+      <div className="container-fluid pt-5">
+        <div className="row m-auto">
+          <div className="col-md-6 mb-5 text-center">
+            <h1 className="Heading">Mere Keeps</h1>
+            <hr/>
+            <h5 className="Phrase"><i>Organize Your Notes, Ideas & Memories</i></h5>
+            <Link role="button" to="/login"><button type="button" className="btn btn-primary mt-5 BtnSize">Try MereKeeps</button></Link>
+          </div>
+          <div className="col-md-6 mb-5 text-center">
+          <img src={HomeBack4} className="img-fluid" alt="HomeBack3"/>
           </div>
         </div>
       </div>

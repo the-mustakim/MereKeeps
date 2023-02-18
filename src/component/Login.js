@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Login1 from '../images/Login1.jpg'
+import './style1.css'
 
 export default function Login(props) {
   const [credentails, setCredentails] = useState({email:"",password:""});
@@ -46,10 +47,11 @@ export default function Login(props) {
   return (
     <>
       <div className="row mx-auto" style={{
-          backgroundColor: "#3BB9FF",
+          color:"white",
+          backgroundColor: "#00579c",
           borderRadius:20,
           width:900,
-          padding:50
+          padding:50,
         }}>
       <div className="col" onSubmit={handleSubmit} style={{marginTop:100}}>
       <h2>Login to MereKeeps</h2>
@@ -68,9 +70,9 @@ export default function Login(props) {
               value={credentails.email}
               onChange={onChange}
             />
-            <div id="emailHelp" className="form-text">
+            <small>
               We'll never share your email with anyone else.
-            </div>
+            </small>
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
@@ -87,7 +89,7 @@ export default function Login(props) {
               onChange={onChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary BtnLogin">
             Submit
           </button>
         </form>

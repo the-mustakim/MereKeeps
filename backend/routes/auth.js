@@ -63,11 +63,11 @@ router.post(
       };
 
       const authToken = jwt.sign(data, JWT_SECRET);
-      console.log(authToken);
+      //console.log(authToken);
       success=true
       res.json({success, authToken });
     } catch (error) {
-      console.log(error.message);
+      //console.log(error.message);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -91,7 +91,7 @@ router.post(
     const { email, password } = req.body;
     try {
       let user = await User.findOne({ email });
-      console.log(user);
+      //console.log(user);
       if (!user) {
         return res
           .status(400)
@@ -112,11 +112,11 @@ router.post(
       };
 
       const authToken = jwt.sign(data, JWT_SECRET);
-      console.log(authToken);
+      //console.log(authToken);
       success=true
       res.json({ success,authToken });
     } catch (error) { 
-      console.log(error.message);
+      //console.log(error.message);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -130,7 +130,7 @@ router.post("/getuser",fetchuser,  async (req, res) => {
       const user = await User.findById(userId).select("password");
       res.send(user);
     } catch (error) {
-      console.log(error.message);
+      //console.log(error.message);
       res.status(500).send("Internal Server Error");
     }
   }

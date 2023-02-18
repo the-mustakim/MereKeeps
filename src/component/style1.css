@@ -1,4 +1,34 @@
-.divSize
+.Heading
 {
-    height: 500px;
+    font-size: 5rem;
+    color:#00579c;
+}
+
+.Phrase
+{
+    color:#00579c;
+}
+
+.BtnSize
+{
+    width: 200px;
+    height: 50px;
+    background-color: #00579c;
+}
+
+.BtnSize:hover
+{
+    color: #00579c;
+    background-color: white;
+}
+
+.BtnLogin
+{
+    background-color: #00579c;
+}
+
+.BtnLogin:hover
+{
+    color: #00579c;
+    background-color: white;
 }
