@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5000";
+  const host = process.env.REACT_APP_HOST_LOCATION;
   const notesInitial = [];
 
   const [notes, setNotes] = useState(notesInitial);
@@ -11,7 +11,7 @@ const NoteState = (props) => {
   //Get All Notes
   const getNotes = async () => {
     //API Call
-    axios
+    await axios
       .get(`${host}/api/notes/fetchallnotes`, {
         headers: {
           "Content-Type": "application/json",

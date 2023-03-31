@@ -16,6 +16,8 @@ export default function Home() {
   const [viewlessNoteOranized, setviewLessNoteOranized] = useState(false)
   const [viewlessFastAccess, setviewLessFastAccess] = useState(false)
   const [viewlessCloudStorage, setviewLessCloudStorage] = useState(false)
+
+  //console.log("This is getting the op "+process.env.REACT_APP_HOST_LOCATION)
   
   // const DataArr=["With MereKeeps, you can easily organize your notes in a way that makes sense to you. Whether you prefer to categorize them by topic, tag them with keywords, or store them in specific folders, MereKeeps makes it easy to find what you're looking for. This feature is particularly useful for users who have a lot of notes and want to keep them organized for easy reference.",
   // "MereKeeps provides a variety of tools and features that allow you to quickly and easily access your notes. The search function allows you to find specific notes by keyword or tag, making it easy to locate the information you need. Additionally, the 'Recently Viewed' feature allows you to quickly access notes that you've recently worked on, so you can pick up where you left off. This feature is particularly useful for users who want to save time and stay organized, as it allows you to find and access the notes you need quickly and easily. With MereKeeps, you can spend less time searching for information and more time focusing on what's important.",

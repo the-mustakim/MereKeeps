@@ -5,6 +5,7 @@ import SignUp1 from '../images/SignUp1.jpg';
 import './style1.css'
 
 export default function Signup(props) {
+  
   const [credentails, setCredentails] = useState({
     name: "",
     email: "",
@@ -16,6 +17,8 @@ export default function Signup(props) {
   const onChange = (event) => {
     setCredentails({ ...credentails, [event.target.name]: event.target.value });
   };
+
+  const host = process.env.REACT_APP_HOST_LOCATION;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +42,7 @@ export default function Signup(props) {
         },
       };
       axios
-        .post("http://localhost:5000/api/auth/createuser", data, options)
+        .post(`${host}/api/auth/createuser`, data, options)
         .then(
           (response) => {
             //console.log(response.data);

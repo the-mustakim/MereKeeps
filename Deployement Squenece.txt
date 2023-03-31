@@ -1,0 +1,17 @@
+sudo apt-get update
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+
+sudo apt-get install unzip
+
+https://github.com/Unitech/pm2
+
+sudo apt-get install apache2
+
+cd /var/www/html
+
+sudo rm index.html
+
+sudo mv ~/MereKeepsFrontend.zip .
+
+sudo unzip MereKeepsFrontend.zip

@@ -16,12 +16,13 @@ export default function Login(props) {
     e.preventDefault();
     //debugger;
     const data = JSON.stringify({email:credentails.email, password: credentails.password });
+    const host = process.env.REACT_APP_HOST_LOCATION;
     const options = {
       headers: {
         "Content-Type": "application/json",
       },
     };
-    axios.post("http://localhost:5000/api/auth/login", data, options).then(
+    axios.post(`${host}/api/auth/login`, data, options).then(
       (response) => {
         //console.log(response.data);
         if(response.data.success)
